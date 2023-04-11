@@ -30,6 +30,7 @@ export default class {
     });
 
     this.editor.on('change', () => {
+      console.log("Detected change")
       localStorage.setItem('content', this.editor.getValue());
     });
 
@@ -37,6 +38,7 @@ export default class {
     this.editor.on('blur', () => {
       console.log('The editor has lost focus');
       putDb(localStorage.getItem('content'));
+      console.log("Autosaved change")
     });
   }
 }
